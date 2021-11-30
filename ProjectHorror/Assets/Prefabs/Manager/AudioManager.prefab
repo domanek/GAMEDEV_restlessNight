@@ -1,0 +1,250 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5800818159519287413
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5800818159519287419}
+  - component: {fileID: 5800818159519287412}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5800818159519287419
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5800818159519287413}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5800818159519287412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5800818159519287413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d126a600704dbe242913d11a071b9bc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: theme
+    clip: {fileID: 8300000, guid: 8b107738982124c4b96b69f26a1b83ce, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: player_footstep_street
+    clip: {fileID: 8300000, guid: 0ccb91127fa42aa41ae8f59ad6dc24e0, type: 3}
+    volume: 0.15
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: player_footstep_ground
+    clip: {fileID: 8300000, guid: 85f75df424fc45348abb632333147091, type: 3}
+    volume: 0.05
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: player_nobreath
+    clip: {fileID: 8300000, guid: fd05c10a8c4b57f499074eb563bac624, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ui_mouseover
+    clip: {fileID: 8300000, guid: 730191a17c562094aaf3527dd9e40ef2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ui_mouseclick
+    clip: {fileID: 8300000, guid: 121652b4828a5a44cad3037d7965c345, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ui_startgame
+    clip: {fileID: 8300000, guid: fccb8fabef11677439384880ac37227d, type: 3}
+    volume: 0.35
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: flashlight_on
+    clip: {fileID: 8300000, guid: 3640c169b79eb194fb6ad1b291e694d0, type: 3}
+    volume: 0.35
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: flashlight_off
+    clip: {fileID: 8300000, guid: 518803cf192d0434cb0f98c4721a858b, type: 3}
+    volume: 0.35
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: violin
+    clip: {fileID: 8300000, guid: 4883898effaff75469c1288da6a469d2, type: 3}
+    volume: 0.75
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: theme2
+    clip: {fileID: 8300000, guid: a64b6f6f3ce2ef14783dae7a4ace6981, type: 3}
+    volume: 0.35
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: flicker
+    clip: {fileID: 8300000, guid: d0b98c745df0393469a7449b2657d185, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: rain
+    clip: {fileID: 8300000, guid: deb0433053e2be54a8bc155dd7cb759a, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: player_wakeup
+    clip: {fileID: 8300000, guid: b388884d5aeb616418c0d275708f5332, type: 3}
+    volume: 0.25
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: player_nightmare
+    clip: {fileID: 8300000, guid: 80665528d62280c458a960232e403f86, type: 3}
+    volume: 0.36
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ui_text
+    clip: {fileID: 8300000, guid: d4a8727da3908ef4484764b75eea8705, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: player_death
+    clip: {fileID: 8300000, guid: b388884d5aeb616418c0d275708f5332, type: 3}
+    volume: 1
+    pitch: 1.5
+    loop: 0
+    source: {fileID: 0}
+  - name: tv
+    clip: {fileID: 8300000, guid: 46fb1118ccb93b34eba50b52686ed43c, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: whisper
+    clip: {fileID: 8300000, guid: da2332a07ad78ae4b921053e752ef76e, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: bulb
+    clip: {fileID: 8300000, guid: 1ca21e56443c6df429a0ba4fefdf8196, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: buttonpress
+    clip: {fileID: 8300000, guid: a15dee880d7c3974c9f32b2fb72ac6bf, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: credits
+    clip: {fileID: 8300000, guid: 4ef4e14f5d4ef204bbf8559d3424d374, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: denied
+    clip: {fileID: 8300000, guid: 2c817a57e5afe994dac622dcbd3341fe, type: 3}
+    volume: 0.25
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: doorunlocked
+    clip: {fileID: 8300000, guid: cff2ca20aefdc814dbb6fcaf37a083f3, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: unlocked
+    clip: {fileID: 8300000, guid: be416e1a278128c42a33568aaa9b07c5, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: falling
+    clip: {fileID: 8300000, guid: 3c3b15f2690e30243be39d532e70f72c, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: neck
+    clip: {fileID: 8300000, guid: 4eb7162f2918a104db4929a3cf70b6fa, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: enemy_chasing
+    clip: {fileID: 8300000, guid: a2a9b16445449b44b80d3306bc7025bb, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: enemy_idle
+    clip: {fileID: 8300000, guid: c3eb5d5dea1cacf489a7a6d4cb71f3ce, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: enemy_fleeing
+    clip: {fileID: 8300000, guid: 87f776638d2042e4a84ad91e1d73a43a, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: idle01
+    clip: {fileID: 8300000, guid: e9eaa10901087064fb34d0f5f0a7bde5, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: idle02
+    clip: {fileID: 8300000, guid: 1e3bca0bf9027c54b8a4bc1ac60c3cdd, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: idle03
+    clip: {fileID: 8300000, guid: fe91482a5631c014eb481c5e69ff0283, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: enemy_die
+    clip: {fileID: 8300000, guid: b388884d5aeb616418c0d275708f5332, type: 3}
+    volume: 0.5
+    pitch: 0.2
+    loop: 0
+    source: {fileID: 0}

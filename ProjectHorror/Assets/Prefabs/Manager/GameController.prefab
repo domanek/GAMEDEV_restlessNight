@@ -1,0 +1,241 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7830897011488238688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7830897011488238690}
+  - component: {fileID: 1203091233}
+  - component: {fileID: 7830897011488238689}
+  - component: {fileID: 7830897011488238691}
+  - component: {fileID: 7830897011488238716}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7830897011488238690
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7830897011488238688}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1203091233
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7830897011488238688}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 9726e47bab5cd7e4a8fb9181617fd24b, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &7830897011488238689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7830897011488238688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2be5dbe4e429c9c40b81641e22a17b9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  playerLightIntensitySlider: {fileID: 0}
+  deathImage: {fileID: 0}
+  fogThreshold: 0.25
+  fogChangeSpeed: 25
+  minFog: 35
+  maxFog: 80
+--- !u!114 &7830897011488238691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7830897011488238688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04d4c48bde8ae6049899f7aa1839b051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainLights:
+  - name: Main1
+    light: {fileID: 0}
+    maxIntensity: 0.1
+  lightSwitchThreshold: 0.25
+  lightMaxIntensity: 0.08
+  lightMinIntensity: 0.005
+  lightChangeSpeed: 10
+--- !u!114 &7830897011488238716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7830897011488238688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dcd0fbbde1a4e84c92c0dcbdebc87b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerEvents:
+  - name: spawnlight
+    duration: 3
+    isUsingLights: 1
+    switchOffLight: 1
+    isSpawningObject: 1
+    light: {fileID: 0}
+    obj: {fileID: 1400465981793053390, guid: 86b50662d0fcde349b58e4c5715a8b8e, type: 3}
+    objPosition: {fileID: 0}
+    clipNames:
+    - violin
+    - flicker
+    isRunning: 0
+  - name: spawn
+    duration: 1.6
+    isUsingLights: 0
+    switchOffLight: 0
+    isSpawningObject: 1
+    light: {fileID: 0}
+    obj: {fileID: 8361083049802981968, guid: e70d4780c49f00f4d868a47b0b5c0946, type: 3}
+    objPosition: {fileID: 0}
+    clipNames:
+    - whisper
+    isRunning: 0
+  - name: light
+    duration: 3
+    isUsingLights: 1
+    switchOffLight: 0
+    isSpawningObject: 0
+    light: {fileID: 0}
+    obj: {fileID: 0}
+    objPosition: {fileID: 0}
+    clipNames:
+    - flicker
+    isRunning: 0
+  - name: lightbulb
+    duration: 1
+    isUsingLights: 1
+    switchOffLight: 1
+    isSpawningObject: 0
+    light: {fileID: 0}
+    obj: {fileID: 0}
+    objPosition: {fileID: 0}
+    clipNames:
+    - flicker
+    - bulb
+    isRunning: 0
+  - name: enemymove
+    duration: 2.5
+    isUsingLights: 1
+    switchOffLight: 1
+    isSpawningObject: 1
+    light: {fileID: 0}
+    obj: {fileID: 0}
+    objPosition: {fileID: 0}
+    clipNames:
+    - violin
+    isRunning: 0
