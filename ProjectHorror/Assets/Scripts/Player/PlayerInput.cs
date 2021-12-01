@@ -21,6 +21,7 @@ public class PlayerInput : MonoBehaviour
 
     private bool flashlightIsOn = false;
     private bool flashlightIsDecreasing = false;
+    private bool flashLightIsInfluenced = false;
 
     private bool flashlightIsFlickering = false;
     private int flickCounter = 0;
@@ -78,19 +79,40 @@ public class PlayerInput : MonoBehaviour
         currentLightIntensity = playerLight.intensity;
     }
 
-    private void ProcessLight()
+    public void ChangeLightInfluence()
     {
-        if (flashlightIsOn && !flashlightIsDecreasing) StartCoroutine(DecreasePlayerLightIntensity());
+        flashLightIsInfluenced = true;
     }
 
-    private void ProcessLightFlicker()
+    public void StartFlickerSequence()
     {
-        if (flashlightIsOn && playerLight.intensity < 0.4f && playerLight.intensity > 0.25f)
+        ProcessLightFlicker(true);
+    }
+
+    private void ProcessLight()
+    {
+        if (flashlightIsOn && !flashlightIsDecreasing && flashLightIsInfluenced) StartCoroutine(DecreasePlayerLightIntensity());
+    }
+
+    private bool isResetingFlickCounter = false;
+    private void ProcessLightFlicker(bool overrideCondition = false)
+    {
+        if ((flashlightIsOn && playerLight.intensity < 0.4f && playerLight.intensity > 0.25f) || overrideCondition)
         {
             if (!flashlightIsFlickering && flickCounter <= 5) StartCoroutine(FlickerPlayerLight());
         }
 
-        if (playerLight.intensity > 1.25f) flickCounter = 0;
+        if (!flashlightIsFlickering && !isResetingFlickCounter) StartCoroutine(ResetFlickCounter());
+    }
+
+    private IEnumerator ResetFlickCounter()
+    {
+        isResetingFlickCounter = true;
+        yield return new WaitForSeconds(1.2f);
+        if (flashlightIsFlickering) yield break;
+        flickCounter = 0;
+        yield return null;
+        isResetingFlickCounter = false;
     }
 
     private IEnumerator FlickerPlayerLight()

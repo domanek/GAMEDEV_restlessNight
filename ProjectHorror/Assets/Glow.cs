@@ -7,22 +7,29 @@ public class Glow : MonoBehaviour
     [SerializeField] Color targetColor;
     [SerializeField] Color startColor;
 
-    Renderer rend;
+    private MeshRenderer rend;
+    private Light light;
 
     private float effectTimer;
-    private float intensity = 0.2f;
+    [SerializeField] private float intensity = 0.2f;
     [SerializeField] float glowDuration = 2f;
+
+    [SerializeField] private bool hasLight = false;
 
     private void Start()
     {
-        rend = GetComponent<Renderer>();
+        rend = GetComponent<MeshRenderer>();
         rend.material.SetColor("_EmissionColor", startColor);
         rend.material.EnableKeyword("_EMISSION");
+
+        if (hasLight) light = GetComponent<Light>();
     }
 
     private void Update()
     {
         effectTimer = Mathf.PingPong(Time.time / glowDuration, 1f);
         rend.material.SetColor("_EmissionColor", Color.Lerp(startColor, targetColor, effectTimer) * intensity);
+
+        if (hasLight) light.intensity = effectTimer;
     }
 }

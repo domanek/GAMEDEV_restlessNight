@@ -27,22 +27,18 @@ public class DoorButton : MonoBehaviour
     {
         isPressed = true;
 
-        Debug.Log("DoorButton: " + identifier + " has been pressed!");
         AudioManager.instance.Play("buttonpress");
         DoorController.instance.ButtonHasBeenPressed(identifier);
         LeanTween.move(this.gameObject, new Vector3(transform.position.x + moveDistance, transform.position.y, transform.position.z), buttonPressDuration / 2).setEaseInOutBack();
 
-        yield return new WaitForSeconds(buttonPressDuration);
+        yield return new WaitForSeconds(buttonPressDuration / 2);
 
         LeanTween.move(this.gameObject, new Vector3(transform.position.x - moveDistance, transform.position.y, transform.position.z), buttonPressDuration / 2).setEaseInOutBack();
+        yield return new WaitForSeconds(buttonPressDuration / 2);
 
         isPressed = false;
     }
 
-
-    /// <summary>
-    ///  Interactable Part 
-    /// </summary>
     [SerializeField] string hoverText;
     [SerializeField] OnInteractEvent OnInteract = new OnInteractEvent();
 

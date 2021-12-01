@@ -16,6 +16,10 @@ public class DoorController : MonoBehaviour
     private string solutionInput = "";
     private bool solved = false;
     private bool fakeEntered = false;
+    private int timesTried = 0;
+
+    private bool playedHint = false;
+    private bool playedHint2 = false;
 
     private void Start()
     {
@@ -52,6 +56,18 @@ public class DoorController : MonoBehaviour
         {
             solutionInput = "";
             AudioManager.instance.Play("denied");
+            timesTried++;
+        }
+
+        if (timesTried == 8 && !playedHint)
+        {
+            playedHint = true;
+            TextManager.instance.StartTextEvent("keypadhint");
+        }
+        if (timesTried == 12 && !playedHint2)
+        {
+            playedHint2 = true;
+            TextManager.instance.StartTextEvent("keypadhint2");
         }
     }
 

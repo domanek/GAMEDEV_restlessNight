@@ -37,6 +37,7 @@ public class Enemy : MonoBehaviour
     private bool isApproaching = false;
     private bool isEscaping = false;
     private bool isGoingToPosition = false;
+    private bool flashing = false;
 
     [SerializeField] private EnemyState currentState = EnemyState.Idle;
 
@@ -49,17 +50,40 @@ public class Enemy : MonoBehaviour
         Fleeing
     }
 
-    private bool flashing = false;
+    private void Start()
+    {
+        rend = GetComponentInChildren<Renderer>();
+        rb = GetComponent<Rigidbody>();
+        lightVulnerabilityScript = GetComponent<LightVulnerability>();
+        animationScript = GetComponent<AnimationStateController>();
+        canSeeScript = GetComponent<CanSee>();
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        chaseDuration = Random.Range(chaseDuration, chaseDuration * 3);
+        chaseSpeed = Random.Range(chaseSpeed, chaseSpeed * 2);
+        fleeingSpeed = Random.Range(chaseSpeed, fleeingSpeed + fleeingSpeed / 4);
+
+        if (hasMovingInstruction) animationScript.SetAnimRunning(true);
+    }
+
+    private void FixedUpdate()
+    {
+        if (player == null || !isReactive) return;
+
+        if (hasMovingInstruction)
+        {
+            if (!isGoingToPosition) StartCoroutine(GoToPos());
+        }
+        else
+        {
+            GetEnemyLightStatus();
+            SetEnemyBehaviour();
+        }
+    }
+
     public void EnemyHitEffect()
     {
         if (!flashing && lightVulnerabilityScript.GetLightStatus() && isAffectedByLight) StartCoroutine(FlashObject(Color.black, Color.white, 1f, 0.15f));
-    }
-
-    void ResetColor()
-    {
-        rend.material.DisableKeyword("_EMISSION");
-        rend.material.SetColor("_EmissionColor", Color.black);
-        rend.material.color = Color.black;
     }
 
     private IEnumerator FlashObject(Color originalColor, Color flashColor, float flashTime, float flashSpeed)
@@ -99,35 +123,6 @@ public class Enemy : MonoBehaviour
         flashing = false;
     }
 
-    private void Start()
-    {
-        rend = GetComponentInChildren<Renderer>();
-        rb = GetComponent<Rigidbody>();
-        lightVulnerabilityScript = GetComponent<LightVulnerability>();
-        animationScript = GetComponent<AnimationStateController>();
-        canSeeScript = GetComponent<CanSee>();
-        player = GameObject.FindGameObjectWithTag("Player");
-
-        chaseDuration = Random.Range(chaseDuration, chaseDuration * 3);
-        chaseSpeed = Random.Range(chaseSpeed, chaseSpeed * 2);
-        fleeingSpeed = Random.Range(chaseSpeed, fleeingSpeed + fleeingSpeed / 4);
-
-        if (hasMovingInstruction) animationScript.SetAnimRunning(true); 
-    }
-
-    private void FixedUpdate()
-    {
-        if (player == null || !isReactive) return;
-
-        if (hasMovingInstruction)
-        {
-            if (!isGoingToPosition) StartCoroutine(GoToPos());
-        } else
-        {
-            GetEnemyLightStatus();
-            SetEnemyBehaviour();
-        }
-    }
 
     private IEnumerator GoToPos()
     {
@@ -138,7 +133,6 @@ public class Enemy : MonoBehaviour
         {
             Vector3 temp = transform.position + moveDirection;
             lookPos = temp - transform.position;
-            Debug.Log("MoveDest was null! changed with " + moveDirection);
         } else
         {
             lookPos = moveDestination.transform.position - transform.position;
@@ -314,33 +308,8 @@ public class Enemy : MonoBehaviour
         else if (currentState == EnemyState.Chasing) AudioManager.instance.StopPlay("enemy_chasing");
         else if (currentState == EnemyState.Fleeing) AudioManager.instance.StopPlay("enemy_fleeing");
 
-        //float waitForAnotherAmount = 0;
-        //if (currentState == EnemyState.Idle) waitForAnotherAmount = 5;
-        //else if (currentState == EnemyState.Chasing) waitForAnotherAmount = 2;
-        //else if (currentState == EnemyState.Fleeing) waitForAnotherAmount = 3;
-        //Debug.Log("NowWaitingFor " + waitForAnotherAmount + "..");
         yield return new WaitForSeconds(1);
 
         isPlayingAudio = false;
     }
-
-    //private float delay = 0;
-    //private float minPitch = 0.8f;
-    //private float maxPitch = 1.2f;
-    //[SerializeField] private float stepLengthWalk = 0.1f;
-    //[SerializeField] private float stepLengthRun = 0.3f;
-    //void PlayStepSound()
-    //{
-    //    Debug.Log("Enemy velocity: " + rb.velocity);
-    //    if (rb.velocity.sqrMagnitude > 0.1f)
-    //    {
-    //        if (delay >= stepLengthRun)
-    //        {
-    //            AudioManager.instance.PlayWithPitch("enemy_chasing", Random.Range(minPitch, maxPitch));
-    //            delay = 0;
-    //        }
-    //        delay += Time.deltaTime;
-    //    }
-    //}
-
 }

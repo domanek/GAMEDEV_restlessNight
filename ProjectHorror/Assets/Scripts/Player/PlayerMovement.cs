@@ -71,12 +71,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(groundCheck.position, contrl.radius);
-    }
-
     void Update()
     {
         if (!canMove) return;

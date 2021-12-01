@@ -455,8 +455,10 @@ MonoBehaviour:
 
     Jump - Space
 
-    Pause
-    - ESC'
+    Sprint
+    - Shift
+
+    Pause - ESC'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ed4a91f4ff514164db8bd3e9d7a66f5a, type: 2}
   m_sharedMaterial: {fileID: 6494840074339820666, guid: ed4a91f4ff514164db8bd3e9d7a66f5a, type: 2}

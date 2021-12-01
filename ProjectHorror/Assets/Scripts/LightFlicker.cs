@@ -10,13 +10,14 @@ public class LightFlicker : MonoBehaviour
     [SerializeField] private bool searchLightInChildren;
     [SerializeField] private bool searchForMultipleLights;
 
-    [Tooltip("External light to flicker; you can leave this null if you attach script to a light")]
-    [SerializeField] private Light light;
-    [SerializeField] private Light[] lights;
-    [Tooltip("Minimum random light intensity")]
+    private Light light;
+    private Light[] lights;
+
     [SerializeField] private float minIntensity = 0f;
-    [Tooltip("Maximum random light intensity")]
     private float maxIntensity;
+
+    [SerializeField] private float minGlowIntensity = 0f;
+    [SerializeField] private float maxGlowIntensity = 0f;
 
     [Tooltip("How much to smooth out the randomness; lower values = sparks, higher = lantern")]
     [Range(1, 50)]
@@ -33,6 +34,7 @@ public class LightFlicker : MonoBehaviour
 
     private bool hasBeenSwitchedOff = false;
     private bool isFlickering = false;
+    private bool isGlowing = false;
 
     public void StartFlickerOnce(float amount)
     {
@@ -104,6 +106,8 @@ public class LightFlicker : MonoBehaviour
         else maxIntensity = light.intensity;
 
         minIntensityStart = minIntensity;
+        minGlowIntensity = maxIntensity;
+        maxGlowIntensity = maxIntensity + 1;
     }
 
     void Update()
@@ -210,5 +214,33 @@ public class LightFlicker : MonoBehaviour
         else temp = light.intensity;
 
         return temp;
+    }
+
+    public void StartGlow(float duration)
+    {
+        if (!isGlowing) StartCoroutine(PlayLightGlow(duration));
+    }
+
+    private IEnumerator PlayLightGlow(float duration)
+    {
+        isGlowing = true;
+        float glowTimer = duration;
+        while (glowTimer > 0)
+        {
+            if (searchForMultipleLights)
+            {
+                for (int i = 0; i < lights.Length; i++)
+                {
+                    lights[i].intensity = Mathf.Lerp(lightIntensities[i], lightIntensities[i] * 2, Mathf.PingPong(Time.time * 2, 1));
+                }
+            } else
+            {
+                light.intensity = Mathf.Lerp(maxIntensity, maxIntensity * 2, Mathf.PingPong(Time.time * 2, 1));
+            }
+            glowTimer -= Time.deltaTime;
+            yield return null;
+        }
+        yield return null;
+        isGlowing = false;
     }
 }

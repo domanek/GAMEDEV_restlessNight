@@ -9,6 +9,9 @@ public class RechargeLight : MonoBehaviour
 
     private LightFlicker flickerScript;
 
+    private float effectTimer;
+    [SerializeField] float glowDuration = 2f;
+    [SerializeField] float offset = 0.1f;
     private bool isRecharging = false;
 
     private void Start()
@@ -28,6 +31,7 @@ public class RechargeLight : MonoBehaviour
     {
         isRecharging = true;
         other.GetComponent<PlayerInput>().IncreaseLightIntensity(rechargeAmount);
+        if (other.GetComponent<PlayerInput>().GetCurrentPlayerLightIntensity() < (other.GetComponent<PlayerInput>().GetMaxLightIntensity() - offset)) flickerScript.StartGlow(1);
         yield return new WaitForSeconds(rechargeWait);
         isRecharging = false;
     }

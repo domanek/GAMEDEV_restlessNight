@@ -9,13 +9,10 @@ public class CanSee : MonoBehaviour
     [SerializeField] private GameObject target;
     [SerializeField] private float lookDistance;
     [SerializeField] private float chaseThresold;
-
-    [SerializeField] private Vector3 raycastOffSet = new Vector3(0, 1, 0);
     [SerializeField] private float offsetUp = 3;
     RaycastHit hit;
     Vector3 rayDirection;
     private float targetHitDistance = 8f;
-    private float fieldOfView = 170;
 
     public float currentPlayerDistance;
     public bool raycastHitPlayer;
@@ -42,11 +39,6 @@ public class CanSee : MonoBehaviour
 
         raycastHitPlayer = CheckRayCastHit(rayDirection);
 
-        if ((Vector3.Angle(rayDirection, transform.forward)) <= fieldOfView * 0.5f && currentPlayerDistance < lookDistance)
-        {
-
-        }
-
         if (currentPlayerDistance < targetHitDistance)
         {
             if (target.gameObject.CompareTag("Player"))
@@ -61,7 +53,7 @@ public class CanSee : MonoBehaviour
 
        //Debug.DrawRay(transform.position + Vector3.up * offsetUp, target.transform.position -  transform.position, Color.red);
        //Debug.DrawRay(transform.position + Vector3.up * offsetUp, rayDirection, Color.yellow);
-        //Debug.DrawRay(transform.position, transform.forward * lookDistance, Color.green);
+       //Debug.DrawRay(transform.position, transform.forward * lookDistance, Color.green);
     }
 
     private bool CheckRayCastHit(Vector3 rayDirection)

@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 3081324353864436922}
   m_LocalRotation: {x: -0.706934, y: 0, z: 0, w: 0.7072795}
   m_LocalPosition: {x: 0, y: 11.25, z: 0}
-  m_LocalScale: {x: 50, y: 50, z: 1000}
+  m_LocalScale: {x: 50, y: 50, z: 999.9999}
   m_Children:
   - {fileID: 470676116580338587}
   - {fileID: 929051736284656077}
@@ -116,6 +116,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rechargeAmount: 0.1
   rechargeWait: 0.1
+  glowDuration: 2
+  offset: 0.15
 --- !u!114 &1758816767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,9 +133,9 @@ MonoBehaviour:
   allowFlicker: 0
   searchLightInChildren: 1
   searchForMultipleLights: 1
-  light: {fileID: 0}
-  lights: []
   minIntensity: 0
+  minGlowIntensity: 0
+  maxGlowIntensity: 0
   smoothing: 2
   lightIntensities: []
 --- !u!65 &416527258
